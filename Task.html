@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap');
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    #sidebar {
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color:peachpuff;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      padding-top: 20px;
+      color: black;
+      padding-left: 2rem;
+    }
+    #sidebar a:hover {
+      color: black;
+      
+    }
+    #content {
+      margin-left: 250px;
+      padding: 20px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    table{
+      border: 2px solid black;
+    }
+    table thead {
+      background-color:skyblue;
+    }
+    canvas {
+      max-width: 100%;
+      height: 50%;
+    }
+    
+  </style>
+</head>
+<body>
+
+<div id="sidebar">
+  <h2>Sidebar</h2>
+  <ul class="nav flex-column">
+    <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">Analytics</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">Groups</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
+  </ul>
+</div>
+
+<div id="content">
+  <h2> MainContent</h2>
+
+ <div class="col-md-4 mb-4 piechart" >
+      <canvas id="myChart"></canvas>
+ </div>
+
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body" style="border: 1px solid black;">
+          <h5 class="card-title">Total Views</h5>
+          <p class="card-text">9,999</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body"  style="border: 1px solid black;">
+          <h5 class="card-title">Candidates Selected</h5>
+          <p class="card-text">999</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body"  style="border: 1px solid black;">
+          <h5 class="card-title">Candidates Applied</h5>
+          <p class="card-text">5,999</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <table class="table" ,border="4">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Position</th>
+            <th scope="col">Salary</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>MSD</td>
+            <td>Developer</td>
+            <td>$75,000</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Krish</td>
+            <td>Testing</td>
+            <td>$45,000</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Vijay</td>
+            <td>Data Analyst</td>
+            <td>$65,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<script>
+
+      var data = {
+      labels: ['Developer', 'Testing', 'Data Analytic','Desiger'],
+      datasets: [{
+        data: [30, 25, 30, 20], 
+        backgroundColor: ['##e35208', '#177CE2', '#ffce56','#1a2c42'],
+      }]
+    };
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+
+    var myPieChart = new Chart(ctx, {
+      type: 'pie',
+      data: data,
+    });
+
+</script>
+
+</body>
+</html>
